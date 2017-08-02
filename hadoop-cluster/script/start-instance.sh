@@ -10,7 +10,7 @@ do
 	docker rm -f hadoop-slave$i
 	i=$(( $i + 1 ))
 done
-docker network rm hadoop | true
+docker network rm hadoop || true
 docker network create --driver=bridge hadoop
 
 # https://hadoop.apache.org/docs/r0.23.11/hadoop-project-dist/hadoop-common/ClusterSetup.html#Web_Interfaces

@@ -4,7 +4,7 @@ set -e
 
 rm -rf output
 # format twice will cause name node lost
-$HADOOP_BUILD/bin/hdfs namenode -format | true
+$HADOOP_BUILD/bin/hdfs namenode -format || true
 $HADOOP_BUILD/sbin/stop-dfs.sh
 $HADOOP_BUILD/sbin/start-dfs.sh
 # wait until ready

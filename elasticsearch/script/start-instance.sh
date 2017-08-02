@@ -10,7 +10,7 @@ do
 	docker rm -f elasticsearch-slave$i
 	i=$(( $i + 1 ))
 done
-docker network rm elk | true
+docker network rm elk || true
 # https://en.wikipedia.org/wiki/Link-local_address#IPv4
 # stupid IP check force to use link local address and it will limit number of hosts to two
 docker network create --driver=bridge --subnet 169.254.0.0/16 elk
