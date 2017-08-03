@@ -10,7 +10,7 @@ do
 	docker rm -f hbase-slave$i
 	i=$(( $i + 1 ))
 done
-docker network rm hbase | true
+docker network rm hbase || true
 docker network create --driver=bridge hbase
 
 # https://hadoop.apache.org/docs/r0.23.11/hadoop-project-dist/hadoop-common/ClusterSetup.html#Web_Interfaces
