@@ -1,3 +1,6 @@
+image:
+	script/build-image.sh
+
 storage:
 	kubectl delete -f storage.yaml || true
 	sudo rm -rf /tmp/cassandra
@@ -9,6 +12,7 @@ cassandra:
 
 all:
 	$(MAKE) clean
+	$(MAKE) image
 	$(MAKE) storage
 	$(MAKE) cassandra
 

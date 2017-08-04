@@ -25,8 +25,8 @@ spec:
     spec:
       containers:
       - name: cassandra
-        image: gcr.io/google-samples/cassandra:v12
-        imagePullPolicy: Always
+        image: local-cassandra
+        imagePullPolicy: Never
         ports:
         - containerPort: 7000
           name: intra-node
@@ -75,7 +75,7 @@ spec:
             command:
             - /bin/bash
             - -c
-            - /ready-probe.sh
+            - /script/ready-probe.sh
           initialDelaySeconds: 15
           timeoutSeconds: 5
         volumeMounts:
