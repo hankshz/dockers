@@ -39,7 +39,7 @@ Setup the master
     ```
   - Setup the network.
     ```sh
-    kubectl apply -f http://docs.projectcalico.org/v2.3/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
+    kubectl apply -f http://docs.projectcalico.org/v2.4/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
     ```
     Before the network is set, the node won't be ready
     ```sh
