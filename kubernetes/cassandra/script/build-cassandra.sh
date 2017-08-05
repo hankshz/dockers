@@ -3,7 +3,8 @@
 set -e
 
 apt-get update
-apt-get install -y default-jdk python
+apt-get install -y default-jdk python python-pip
+pip install cassandra-driver
 java -version
 
 cp /raw/dumb-init_${DUMB_INIT_VERSION}_amd64 /sbin/dumb-init

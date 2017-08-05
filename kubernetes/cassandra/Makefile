@@ -21,4 +21,4 @@ clean:
 	kubectl delete -f storage.yaml || true
 	sudo rm -rf /tmp/cassandra
 
-.PHONY: all clean storage cassandra
+.PHONY: all clean image storage cassandra
