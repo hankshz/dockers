@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: external-client
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: client
+        access: external
+    spec:
+      containers:
+      - name: client
+        image: client
+        imagePullPolicy: Never
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: internal-client
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: client
+        access: internal
+    spec:
+      containers:
+      - name: client
+        image: client
+        imagePullPolicy: Never
