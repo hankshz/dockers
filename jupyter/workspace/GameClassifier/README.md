@@ -14,3 +14,6 @@ Usage
     ./download.py image --start 1 --count 1000
     ```
   - Use the Jupyter Notebook to try it
+    - A read-only version is [here](GameClassifier.md)
+    - A trained model can be downloaded [here](https://drive.google.com/open?id=0B6EXhnJ8EmaZOE1WTzlSNXd0aU0)
+    - A downloads of thousands of games can be downloaded [here](https://drive.google.com/open?id=0B6EXhnJ8EmaZUnVGc01qNWhOenc)
