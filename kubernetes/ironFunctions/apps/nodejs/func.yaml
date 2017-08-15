@@ -1,0 +1,7 @@
+name: hankshz/nodejs-test
+version: 0.0.1
+runtime: js
+path: /nodejs-test
+max_concurrency: 1
+build:
+- docker run --rm -v "$PWD":/function -w /function iron/node:dev npm install

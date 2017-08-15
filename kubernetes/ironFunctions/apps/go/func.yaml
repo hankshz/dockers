@@ -1,0 +1,7 @@
+name: hankshz/go-test
+version: 0.0.1
+runtime: go
+path: /go-test
+max_concurrency: 1
+build:
+- docker run --rm -v "$PWD":/go/src/github.com/hankshz/test -w /go/src/github.com/hankshz/test iron/go:dev go build -o testbin
