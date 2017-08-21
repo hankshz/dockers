@@ -1,0 +1,3 @@
+*.pem
+trusted_certs
+syntaxcache
