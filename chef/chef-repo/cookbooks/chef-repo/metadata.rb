@@ -5,6 +5,8 @@ license 'all_rights'
 description 'Installs/Configures chef-repo'
 long_description 'Installs/Configures chef-repo'
 version '0.1.0'
+depends 'nginx', '~> 2.7.6'
+depends 'nodejs', '~> 4.0.0'
 
 # If you upload to Supermarket you should set this so your cookbook
 # gets a `View Issues` link

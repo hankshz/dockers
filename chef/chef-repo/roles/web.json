@@ -1,0 +1,16 @@
+{
+   "name": "web",
+   "description": "Web server role.",
+   "json_class": "Chef::Role",
+   "default_attributes": {
+   },
+   "override_attributes": {
+   },
+   "chef_type": "role",
+   "run_list": ["recipe[apt::default]",
+                "recipe[nodejs::default]",
+                "recipe[chef-repo::web]"
+   ],
+   "env_run_lists": {
+   }
+}

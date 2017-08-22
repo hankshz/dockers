@@ -1,0 +1,22 @@
+upstream backend  {
+  server web1;
+  server web2;
+  server web3;
+}
+
+server {
+  listen   80;
+  server_name  balancer1;
+
+  access_log  /var/log/nginx/localhost.access.log;
+
+  location / {
+    root   /var/www/nginx-default;
+    index  index.html index.htm;
+  }
+  
+  location ~ ^/backend/ {
+    rewrite /backend/(.*) /$1 break;
+    proxy_pass  http://backend;
+  }
+}
