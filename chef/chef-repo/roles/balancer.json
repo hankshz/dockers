@@ -1,0 +1,16 @@
+{
+   "name": "balancer",
+   "description": "Load balancer role.",
+   "json_class": "Chef::Role",
+   "default_attributes": {
+   },
+   "override_attributes": {
+   },
+   "chef_type": "role",
+   "run_list": ["recipe[apt::default]",
+                "recipe[nginx::default]",
+                "recipe[chef-repo::balancer]"
+   ],
+   "env_run_lists": {
+   }
+}

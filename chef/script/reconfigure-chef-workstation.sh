@@ -2,6 +2,8 @@
 
 set -e
 
+source $(dirname "${BASH_SOURCE[0]}")/common.sh
+
 wget -O /tmp/knife_admin_key.tar.gz --no-check-certificate chef-server/knife_admin_key.tar.gz 
 tar xvf /tmp/knife_admin_key.tar.gz -C /chef-repo/.chef
 
@@ -13,11 +15,16 @@ knife ssl fetch
 knife ssl check
 knife client list
 
-# Upload the cookbook
-knife cookbook upload chef-repo
-knife cookbook list
-
-# Bootstrap nodes
-knife bootstrap node1 --ssh-user root --ssh-password 'root' --sudo --use-sudo-password --node-name node1 --run-list 'recipe[chef-repo]'
-knife bootstrap node2 --ssh-user root --ssh-password 'root' --sudo --use-sudo-password --node-name node2 --run-list 'recipe[chef-repo]'
+i=1
+while [ $i -lt $N ]
+do
+    knife bootstrap balancer$i --ssh-user root --ssh-password 'root' --sudo --use-sudo-password --node-name balancer$i
+	i=$(( $i + 1 ))
+done
+i=1
+while [ $i -lt $N ]
+do
+    knife bootstrap web$i --ssh-user root --ssh-password 'root' --sudo --use-sudo-password --node-name web$i
+	i=$(( $i + 1 ))
+done
 knife client list
